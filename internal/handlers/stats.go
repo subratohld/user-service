@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"encoding/json"
 	"net/http"
 	"runtime"
 )
@@ -34,7 +33,6 @@ func (s Stats) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		NumGoroutine: runtime.NumGoroutine(),
 	}
 
-	bytes, _ := json.Marshal(stats)
-	w.Write(bytes)
-	w.WriteHeader(http.StatusOK)
+	resp := new(jsonResp)
+	resp.Body(stats).Write(w, http.StatusOK)
 }
