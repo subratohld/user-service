@@ -1,4 +1,4 @@
-package handlers
+package handler
 
 import (
 	"encoding/json"
@@ -9,11 +9,17 @@ import (
 	"go.uber.org/multierr"
 )
 
-type CreateUser struct {
-	Svc service.User
+func NewCreateUserHandler(userSvc service.User) http.Handler {
+	return &createUserHandler{
+		svc: userSvc,
+	}
 }
 
-func (h CreateUser) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+type createUserHandler struct {
+	svc service.User
+}
+
+func (h createUserHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	resp := new(jsonResp)
 	if r.Body == nil {
 		resp.Errors("empty request body").Write(w, http.StatusBadRequest)
@@ -36,7 +42,7 @@ func (h CreateUser) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	dbUser, err := h.Svc.Save(&user)
+	dbUser, err := h.svc.Save(&user)
 	if err != nil {
 		resp.Errors("could not process request").Write(w, http.StatusInternalServerError)
 		return

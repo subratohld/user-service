@@ -7,8 +7,9 @@ server:
 log:
   level: debug
   paths:
-    - /Users/subrato/Documents/Projects/goproj/online-exam/service.log
-  encoding: json
+    # - /Users/subrato/Documents/Projects/goproj/online-exam/service.log
+    - stdout
+  encoding: console
   verbose: false
   showLogger: false
   showCaller: true

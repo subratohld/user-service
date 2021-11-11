@@ -5,7 +5,6 @@ go 1.17
 require (
 	github.com/fsnotify/fsnotify v1.5.1
 	github.com/gorilla/mux v1.8.0
-	github.com/spf13/cobra v1.2.1
 	github.com/subratohld/config v0.0.0-20211109124947-aff552449960
 	github.com/subratohld/logger v0.0.0-20211109064749-b747cb38cd12
 	github.com/subratohld/sqldb v0.0.0-20211109072343-e785e4c094b1
@@ -16,7 +15,6 @@ require (
 require (
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.3.4 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mitchellh/mapstructure v1.4.2 // indirect
