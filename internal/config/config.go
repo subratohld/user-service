@@ -1,18 +1,17 @@
-package service
+package config
 
 import (
 	"fmt"
 	"os"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/subratohld/config"
+	xconfig "github.com/subratohld/config"
 	xlogger "github.com/subratohld/logger"
 	"go.uber.org/zap"
 )
 
-func NewConfig() config.Reader {
-	configFile := os.Getenv("CONFIG_FILE")
-	configReader, err := config.New(configFile)
+func New() xconfig.Reader {
+	configReader, err := xconfig.New("/etc/config/config.yaml")
 	if err != nil {
 		// This logger will write logs on console
 		logger, _ := xlogger.NewLoggerWithoutConfig()

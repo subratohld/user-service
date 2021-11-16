@@ -1,0 +1,10 @@
+Select the line and press opt+cmd+R to execute
+
+###
+
+GET http://localhost:8080/api/user/svc/health
+
+###
+
+GET http://localhost:8080/api/user/svc/stats
+

@@ -1,0 +1,21 @@
+app: 
+  name: user-service
+server:
+  port: 8080
+log:
+  level: debug
+  paths:
+    # - /Users/subrato/Documents/Projects/goproj/online-exam/service.log
+    - stdout
+  encoding: console
+  verbose: false
+  showLogger: false
+  showCaller: true
+  showStacktrace: false
+db: 
+  mysql:
+    username: root
+    password: 
+    host: localhost
+    port: 3306
+    database: test-db

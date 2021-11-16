@@ -7,8 +7,12 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/subratohld/config"
-	"github.com/subratohld/logger"
+	xconfig "github.com/subratohld/config"
+	xlogger "github.com/subratohld/logger"
+	"github.com/subratohld/user-service/internal/config"
+	"github.com/subratohld/user-service/internal/constant"
+	"github.com/subratohld/user-service/internal/db"
+	"github.com/subratohld/user-service/internal/logger"
 	"github.com/subratohld/user-service/internal/repository"
 	"github.com/subratohld/user-service/internal/router"
 	"github.com/subratohld/user-service/internal/server"
@@ -44,16 +48,16 @@ func main() {
 }
 
 type App struct {
-	configReader config.Reader
-	logger       logger.Logger
+	configReader xconfig.Reader
+	logger       xlogger.Logger
 	svr          server.Server
 }
 
 func (app *App) init() *App {
-	configReader := service.NewConfig()
-	logger := service.NewLogger(configReader)
+	configReader := config.New()
+	logger := logger.New(configReader)
 
-	db := service.DB(configReader)
+	db := db.DB(configReader)
 	userRepo := repository.NewUserRepo(db)
 	userSvc := service.NewUserService(userRepo, logger)
 	handler := router.Routes(userSvc)
@@ -67,8 +71,7 @@ func (app *App) init() *App {
 }
 
 func (app *App) start() {
-	app.logger.Info("Some info", zap.Int("uid", os.Getuid()), zap.Int("pid", os.Getpid()))
-	port := app.configReader.GetString("server.port")
+	port := app.configReader.GetString(constant.KEY_SERVER_PORT)
 	app.logger.Info("starting server at port " + port)
 
 	// It will start the server, it is blocking in nature
