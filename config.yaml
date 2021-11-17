@@ -16,5 +16,5 @@ db:
   mysql:
     username: root
     password: 
-    server: 192.168.226.254:3306
+    server: mysql # mysql service name
     database: test-db

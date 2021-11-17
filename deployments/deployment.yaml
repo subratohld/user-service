@@ -40,4 +40,3 @@ spec:
     protocol: TCP
     port: 9090
     targetPort: 8080
-    nodePort: 30001 # 30000 - 32767 
