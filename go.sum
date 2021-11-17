@@ -270,6 +270,8 @@ github.com/subratohld/retry v0.0.0-20211106081654-258b0e24afce h1:g9daXWaNTJMxMi
 github.com/subratohld/retry v0.0.0-20211106081654-258b0e24afce/go.mod h1:BWRt5X5IAUO8quH9iDa0JZeFCXfd1AxH8DK6IacAy7A=
 github.com/subratohld/sqldb v0.0.0-20211109072343-e785e4c094b1 h1:HeMNa8wWK/w4zJY/hBspLlV5jwbkDmrzTGamJQrAh+k=
 github.com/subratohld/sqldb v0.0.0-20211109072343-e785e4c094b1/go.mod h1:LfI+HTkeqbb4fWJrIMOBslGjbHwSnyrDK3ZhnIAHsyk=
+github.com/subratohld/sqldb v0.0.0-20211117134956-73b7fe630a15 h1:epY5EyEeF6bDwqj1y71ckveO0Pr7ZibenXulXlTJqNc=
+github.com/subratohld/sqldb v0.0.0-20211117134956-73b7fe630a15/go.mod h1:LfI+HTkeqbb4fWJrIMOBslGjbHwSnyrDK3ZhnIAHsyk=
 github.com/yuin/goldmark v1.1.25/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
 github.com/yuin/goldmark v1.1.32/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=

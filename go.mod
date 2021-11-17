@@ -7,7 +7,7 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/subratohld/config v0.0.0-20211109124947-aff552449960
 	github.com/subratohld/logger v0.0.0-20211109064749-b747cb38cd12
-	github.com/subratohld/sqldb v0.0.0-20211109072343-e785e4c094b1
+	github.com/subratohld/sqldb v0.0.0-20211117134956-73b7fe630a15
 	go.uber.org/multierr v1.7.0
 	go.uber.org/zap v1.19.1
 )

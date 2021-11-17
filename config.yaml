@@ -16,6 +16,5 @@ db:
   mysql:
     username: root
     password: 
-    host: 192.168.226.254
-    port: 3306
+    server: 192.168.226.254:3306
     database: test-db

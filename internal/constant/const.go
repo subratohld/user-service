@@ -15,6 +15,7 @@ const (
 
 	KEY_MYSQL_USER     = "db.mysql.username"
 	KEY_MYSQL_PASSWORD = "db.mysql.password"
+	KEY_MYSQL_SERVER   = "db.mysql.server"
 	KEY_MYSQL_HOST     = "db.mysql.host"
 	KEY_MYSQL_PORT     = "db.mysql.port"
 	KEY_MYSQL_DATABASE = "db.mysql.database"

@@ -65,7 +65,7 @@ github.com/subratohld/logger
 # github.com/subratohld/retry v0.0.0-20211106081654-258b0e24afce
 ## explicit; go 1.17
 github.com/subratohld/retry
-# github.com/subratohld/sqldb v0.0.0-20211109072343-e785e4c094b1
+# github.com/subratohld/sqldb v0.0.0-20211117134956-73b7fe630a15
 ## explicit; go 1.17
 github.com/subratohld/sqldb
 # go.uber.org/atomic v1.7.0

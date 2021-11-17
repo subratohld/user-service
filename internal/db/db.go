@@ -15,8 +15,7 @@ func DB(configReader xconfig.Reader) sqldb.Sql {
 	param := sqldb.Params{
 		Username: configReader.GetString(constant.KEY_MYSQL_USER),
 		Password: configReader.GetString(constant.KEY_MYSQL_PASSWORD),
-		Host:     configReader.GetString(constant.KEY_MYSQL_HOST),
-		Port:     configReader.GetString(constant.KEY_MYSQL_PORT),
+		Server:   configReader.GetString(constant.KEY_MYSQL_SERVER),
 		Database: configReader.GetString(constant.KEY_MYSQL_DATABASE),
 	}
 
