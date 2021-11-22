@@ -13,7 +13,12 @@ pipeline{
         stage("Build"){
             steps{
                 sh "chmod +x ./scripts/*.sh"
-                sh "make build"
+                script {
+                    docker.build "subratohld/user-service:1.0"
+                }
+
+                // ${env.BUILD_TAG}
+                // sh "make build"
             }
         }
         stage("Test") {
