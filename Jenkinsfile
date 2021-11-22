@@ -3,7 +3,8 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "Building..."
+                sh "chmod +x ./scripts/*.sh"
+                sh "make build"
             }
         }
         stage("Test") {
