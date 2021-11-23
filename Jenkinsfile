@@ -12,7 +12,7 @@ pipeline{
                 sh "chmod +x ./scripts/*.sh"
                 
                 script {
-                    def gitCommit = getCommitHash
+                    def gitCommit = pipeline.getCommitHash
                     echo "${gitCommit}"
                     // docker.build "subratohld/user-service:1.0"
                 }
