@@ -15,7 +15,9 @@ pipeline{
                 sh "chmod +x ./scripts/*.sh"
                 
                 script {
-                    docker.build "subratohld/user-service:1.0"
+                    def gitCommit = sh 'git rev-parse --short main'
+                    echo "${gitCommit}"
+                    // docker.build "subratohld/user-service:1.0"
                 }
 
                 // ${env.BUILD_TAG}
