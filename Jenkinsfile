@@ -3,6 +3,10 @@ def gv
 pipeline{
     agent any
 
+    environment {
+        commitHash = ''
+    }
+
     stages{
         stage("Init") {
             steps {
@@ -15,13 +19,9 @@ pipeline{
         stage("Build"){
             steps{
                 script {
-                    def gitCommit = gv.getCommitHash()
-                    echo "${gitCommit}"
-                    // docker.build "subratohld/user-service:1.0"
+                    env.commitHash = gv.getCommitHash()
+                    docker.build "subratohld/user-service:${env.commitHash}"
                 }
-
-                // ${env.BUILD_TAG}
-                // sh "make build"
             }
         }
 
@@ -37,15 +37,4 @@ pipeline{
             }
         }
     }
-    // post{
-    //     always{
-    //         echo "========always========"
-    //     }
-    //     success{
-    //         echo "========pipeline executed successfully ========"
-    //     }
-    //     failure{
-    //         echo "========pipeline execution failed========"
-    //     }
-    // }
 }
