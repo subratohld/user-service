@@ -15,7 +15,7 @@ pipeline{
                 sh "chmod +x ./scripts/*.sh"
                 
                 script {
-                    def gitCommit = sh 'git rev-parse --short main'
+                    def gitCommit = sh 'git rev-parse --short origin/main'
                     echo "${gitCommit}"
                     // docker.build "subratohld/user-service:1.0"
                 }
