@@ -1,13 +1,10 @@
+def getCommitHash() {
+    def hash = sh 'git rev-parse --short origin/main'
+    return hash
+}
+
 pipeline{
     agent any
-
-    // tools {
-    //     'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
-    // }
-
-    // environment {
-    //     DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
-    // }
 
     stages{
         stage("Build"){
@@ -15,7 +12,7 @@ pipeline{
                 sh "chmod +x ./scripts/*.sh"
                 
                 script {
-                    def gitCommit = sh 'git rev-parse --short origin/main'
+                    def gitCommit = getCommitHash
                     echo "${gitCommit}"
                     // docker.build "subratohld/user-service:1.0"
                 }
