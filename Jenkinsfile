@@ -15,9 +15,7 @@ pipeline{
                 sh "chmod +x ./scripts/*.sh"
                 
                 script {
-                    docker.withTool('docker') {
-                        docker.build "subratohld/user-service:1.0"
-                    }
+                    docker.build "subratohld/user-service:1.0"
                 }
 
                 // ${env.BUILD_TAG}
