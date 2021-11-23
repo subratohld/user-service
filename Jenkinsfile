@@ -1,7 +1,4 @@
-def getCommitHash() {
-    def hash = sh 'git rev-parse --short origin/main'
-    return hash
-}
+def gv = load 'pipeline.groovy'
 
 pipeline{
     agent any
@@ -12,7 +9,7 @@ pipeline{
                 sh "chmod +x ./scripts/*.sh"
                 
                 script {
-                    def gitCommit = pipeline.getCommitHash
+                    def gitCommit = gv.getCommitHash()
                     echo "${gitCommit}"
                     // docker.build "subratohld/user-service:1.0"
                 }
