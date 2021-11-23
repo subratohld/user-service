@@ -1,13 +1,19 @@
-def gv = load 'pipeline.groovy'
+def gv
 
 pipeline{
     agent any
 
     stages{
+        stage("Init") {
+            steps {
+                script {
+                    gv = load 'pipeline.groovy'
+                }
+            }
+        }
+
         stage("Build"){
             steps{
-                sh "chmod +x ./scripts/*.sh"
-                
                 script {
                     def gitCommit = gv.getCommitHash()
                     echo "${gitCommit}"
@@ -18,11 +24,13 @@ pipeline{
                 // sh "make build"
             }
         }
+
         stage("Test") {
             steps{
                 echo "Testing..."
             }
         }
+
         stage("Deploy"){
             steps{
                 echo "Deploying..."
