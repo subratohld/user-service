@@ -1,11 +1,12 @@
 def gv
+def commitHash
 
 pipeline{
     agent any
 
-    environment {
-        commitHash = ''
-    }
+    // environment {
+    //     commitHash = ''
+    // }
 
     stages{
         stage("Init") {
@@ -15,22 +16,24 @@ pipeline{
                 }
             }
         }
-
         stage("Build"){
             steps{
-                script {
-                    env.commitHash = gv.getCommitHash()
-                    docker.build "subratohld/user-service:${env.commitHash}"
-                }
+                echo "Building..."
             }
         }
-
         stage("Test") {
             steps{
                 echo "Testing..."
             }
         }
-
+        stage("Build Image"){
+            steps{
+                script {
+                    commitHash = gv.getCommitHash()
+                    docker.build "subratohld/user-service:${commitHash}"
+                }
+            }
+        }
         stage("Deploy"){
             steps{
                 echo "Deploying..."
